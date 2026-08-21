@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Sistema de Gestión — placeholder">
+  <defs>
+    <linearGradient id="bgD1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D1D70"/>
+      <stop offset="1" stop-color="#01035F"/>
+    </linearGradient>
+    <linearGradient id="bgD2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#020244"/>
+      <stop offset="1" stop-color="#01035F"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="480" fill="url(#bgD1)"/>
+  <circle cx="540" cy="60" r="190" fill="#FEFEFE" opacity="0.05"/>
+  <circle cx="540" cy="60" r="120" fill="none" stroke="#FEFEFE" stroke-opacity="0.12" stroke-width="1.5"/>
+  <circle cx="60" cy="430" r="140" fill="#B32B22" opacity="0.12"/>
+
+  <!-- Ventana de panel -->
+  <rect x="90" y="85" width="460" height="310" rx="14" fill="#020244" opacity="0.85" stroke="#FEFEFE" stroke-opacity="0.15"/>
+  <!-- Barra superior -->
+  <rect x="90" y="85" width="460" height="40" rx="14" fill="#FEFEFE" opacity="0.06"/>
+  <circle cx="112" cy="105" r="5" fill="#FEFEFE" opacity="0.4"/>
+  <circle cx="130" cy="105" r="5" fill="#FEFEFE" opacity="0.4"/>
+  <circle cx="148" cy="105" r="5" fill="#B32B22"/>
+  <!-- Barra de búsqueda -->
+  <rect x="180" y="98" width="220" height="15" rx="7.5" fill="#FEFEFE" opacity="0.08"/>
+
+  <!-- Sidebar -->
+  <rect x="110" y="145" width="110" height="230" fill="#FEFEFE" opacity="0.05"/>
+  <rect x="120" y="160" width="60" height="12" rx="6" fill="#B32B22"/>
+  <rect x="120" y="185" width="80" height="10" rx="5" fill="#FEFEFE" opacity="0.25"/>
+  <rect x="120" y="205" width="70" height="10" rx="5" fill="#FEFEFE" opacity="0.15"/>
+  <rect x="120" y="225" width="76" height="10" rx="5" fill="#FEFEFE" opacity="0.15"/>
+  <rect x="120" y="245" width="66" height="10" rx="5" fill="#FEFEFE" opacity="0.15"/>
+  <rect x="120" y="270" width="80" height="10" rx="5" fill="#FEFEFE" opacity="0.15"/>
+
+  <!-- Gráfico -->
+  <rect x="230" y="160" width="300" height="180" rx="10" fill="#FEFEFE" opacity="0.05"/>
+  <g fill="#0D1D70">
+    <rect x="250" y="270" width="26" height="36" rx="5"/>
+    <rect x="292" y="240" width="26" height="66" rx="5"/>
+    <rect x="334" y="210" width="26" height="96" rx="5"/>
+  </g>
+  <rect x="376" y="180" width="26" height="126" rx="5" fill="#B32B22"/>
+  <rect x="418" y="230" width="26" height="76" rx="5" fill="#0D1D70"/>
+  <rect x="460" y="200" width="26" height="106" rx="5" fill="#0D1D70"/>
+
+  <!-- Pie -->
+  <rect x="120" y="345" width="90" height="12" rx="6" fill="#FEFEFE" opacity="0.2"/>
+  <rect x="440" y="345" width="80" height="12" rx="6" fill="#B32B22"/>
+</svg>

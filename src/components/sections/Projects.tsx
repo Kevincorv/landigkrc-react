@@ -1,0 +1,101 @@
+type Project = {
+  image: string;
+  title: string;
+  category: string;
+  description: string;
+  url?: string;
+};
+
+const projects: Project[] = [
+  {
+    image: "/assets/images/projects/sistema-gestion.svg",
+    title: "Sistema de Gestión",
+    category: "Sistema web",
+    description: "Sistema web empresarial para administrar operaciones.",
+    url: "https://enlodeapubodega.vercel.app/login",
+  },
+  {
+    image: "/assets/images/projects/ecommerce.svg",
+    title: "E-Commerce",
+    category: "Tienda online",
+    description: "Plataforma de ventas online.",
+  },
+  {
+    image: "/assets/images/projects/landing-corporativa.svg",
+    title: "Landing Corporativa",
+    category: "Sitio web",
+    description: "Sitio web profesional para empresa.",
+  },
+];
+
+export default function Projects() {
+  return (
+    <section id="proyectos" className="relative overflow-hidden bg-mist py-20 sm:py-28">
+      <div className="container-site relative">
+        {/* Encabezado */}
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="eyebrow"><span className="u-dot" /> Proyectos</p>
+            <h2 className="title mt-4 text-3xl text-navy sm:text-4xl lg:text-[2.75rem]">
+              Proyectos que hablan por nosotros
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-navy/65 lg:pb-2">
+            Cada proyecto es una solución real, pensada para sumar valor y resultados a quien la usa.
+          </p>
+        </div>
+
+        {/* Tarjetas */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => {
+            const href = project.url ?? "#contacto";
+            return (
+              <article
+                key={project.title}
+                className="panel reveal group overflow-hidden hover:-translate-y-2 hover:shadow-card-hover"
+              >
+                <a
+                  href={href}
+                  {...(project.url
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="block"
+                  aria-label={`${project.title} — ver proyecto`}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={`Imagen de proyecto — ${project.title}`}
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                      width={640}
+                      height={480}
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-navy/85 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  <div className="p-7">
+                    <h3 className="font-display text-lg font-semibold text-navy transition-colors duration-300 group-hover:text-accent">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2.5 text-sm leading-relaxed text-navy/65">
+                      {project.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                      Ver proyecto
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
