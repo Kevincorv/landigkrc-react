@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type BrowserMockupProps = {
   url?: string;
@@ -9,9 +9,8 @@ type BrowserMockupProps = {
   fallbackImage: string;
 };
 
-function buildScreenshotUrl(url: string): string {
-  return `https://image.thum.io/get/width/1280/crop/960/noanimate/${url}`;
-}
+const PREVIEW_WIDTH = 1280;
+const PREVIEW_HEIGHT = 960;
 
 function prettyUrl(url: string): string {
   try {
@@ -29,12 +28,43 @@ export default function BrowserMockup({
   alt,
   fallbackImage,
 }: BrowserMockupProps) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.3);
   const [loaded, setLoaded] = useState(false);
-  const [errored, setErrored] = useState(false);
+  const [inView, setInView] = useState(false);
 
   const hasUrl = Boolean(url);
-  const showFallback = !hasUrl || errored;
-  const screenshotSrc = hasUrl ? buildScreenshotUrl(url!) : fallbackImage;
+
+  useEffect(() => {
+    if (!hasUrl || !frameRef.current) return;
+    const el = frameRef.current;
+
+    const updateScale = () => {
+      setScale(el.clientWidth / PREVIEW_WIDTH);
+    };
+    updateScale();
+
+    const ro = new ResizeObserver(updateScale);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [hasUrl]);
+
+  useEffect(() => {
+    if (!hasUrl) return;
+    const el = frameRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasUrl]);
 
   return (
     <div className="overflow-hidden rounded-t-[25px] bg-[#EDF0F7]">
@@ -71,14 +101,17 @@ export default function BrowserMockup({
         </div>
       </div>
 
-      {/* Area de captura */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
-        {/* Etiqueta de categoria */}
-        <span className="absolute left-4 top-4 z-20 rounded-full bg-navy/85 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+      {/* Área de vista previa */}
+      <div
+        ref={frameRef}
+        className="relative aspect-[4/3] w-full overflow-hidden bg-mist"
+      >
+        {/* Etiqueta de categoría */}
+        <span className="absolute left-4 top-4 z-30 rounded-full bg-navy/85 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
           {label}
         </span>
 
-        {showFallback ? (
+        {!hasUrl ? (
           <img
             src={fallbackImage}
             alt={alt}
@@ -88,17 +121,38 @@ export default function BrowserMockup({
         ) : (
           <>
             {!loaded && (
-              <div className="absolute inset-0 z-0 animate-pulse bg-gradient-to-br from-mist via-mist to-blue/5" />
+              <div className="absolute inset-0 z-10 flex items-center justify-center bg-mist">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="size-8 animate-spin rounded-full border-2 border-navy/15 border-t-accent" />
+                  <span className="text-[11px] font-medium text-navy/40">
+                    Cargando vista previa…
+                  </span>
+                </div>
+              </div>
             )}
-            <img
-              src={screenshotSrc}
-              alt={alt}
-              className="relative z-10 h-full w-full object-cover object-top transition-opacity duration-500"
-              style={{ opacity: loaded ? 1 : 0 }}
-              loading="lazy"
-              onLoad={() => setLoaded(true)}
-              onError={() => setErrored(true)}
-            />
+            {inView && (
+              <div
+                className="absolute left-0 top-0 z-0"
+                style={{
+                  width: `${PREVIEW_WIDTH}px`,
+                  height: `${PREVIEW_HEIGHT}px`,
+                  transform: `scale(${scale})`,
+                  transformOrigin: "top left",
+                }}
+              >
+                <iframe
+                  src={url}
+                  title={alt}
+                  loading="lazy"
+                  tabIndex={-1}
+                  scrolling="no"
+                  onLoad={() => setLoaded(true)}
+                  className="block size-full border-0 bg-white"
+                  style={{ pointerEvents: "none" }}
+                  aria-hidden="true"
+                />
+              </div>
+            )}
           </>
         )}
       </div>
