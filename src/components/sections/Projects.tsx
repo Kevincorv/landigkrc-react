@@ -11,9 +11,10 @@ type Project = {
 const projects: Project[] = [
   {
     image: "/assets/images/projects/sistema-gestion.svg",
-    title: "Sistema de Gestión",
+    title: "Sistema de Gestión de Stock",
     category: "Sistema web",
-    description: "Sistema web empresarial para administrar operaciones.",
+    description:
+      "Sistema web empresarial para controlar inventario, productos, entradas, salidas y operaciones del negocio.",
     url: "https://enlodeapubodega.vercel.app/login",
   },
   {
