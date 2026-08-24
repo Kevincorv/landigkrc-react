@@ -25,7 +25,7 @@ const projects: Project[] = [
   },
   {
     image: "/assets/images/projects/landing-corporativa.svg",
-    title: "Plataforma AutoShopping",
+    title: "AutoShopping — Tienda Automotriz",
     category: "Sitio web",
     description:
       "Sitio web moderno para la gestión y comercialización de productos automotrices.",
