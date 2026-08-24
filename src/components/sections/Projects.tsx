@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     image: "/assets/images/projects/ecommerce.svg",
     title: "Agendamiento Online",
-    category: "Sitio web",
+    category: "Sistema Web",
     description: "Sistema de agendamiento online para gestionar reservas y turnos de manera rápida y sencilla.",
     url: "https://agendamientoonline.vercel.app/",
   },
