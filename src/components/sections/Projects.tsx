@@ -62,7 +62,7 @@ export default function Projects() {
             return (
               <article
                 key={project.title}
-                className="reveal group overflow-hidden rounded-[25px] border border-blue/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover"
+                className="reveal group flex flex-col rounded-[25px] border border-blue/10 bg-white p-3 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover"
               >
                 <a
                   href={href}
@@ -79,7 +79,7 @@ export default function Projects() {
                     fallbackImage={project.image}
                   />
 
-                  <div className="p-8">
+                  <div className="p-5 pt-6">
                     <h3 className="font-display text-xl font-semibold text-navy transition-colors duration-300 group-hover:text-accent">
                       {project.title}
                     </h3>
