@@ -19,9 +19,10 @@ const projects: Project[] = [
   },
   {
     image: "/assets/images/projects/ecommerce.svg",
-    title: "E-Commerce",
-    category: "Tienda online",
-    description: "Plataforma de ventas online.",
+    title: "Agendamiento Online",
+    category: "Sistema de agendamiento online para gestionar reservas y turnos de manera rápida y sencilla.",
+    description: "Sistema de agendamiento online para gestionar reservas y turnos de manera rápida y sencilla.",
+    url: "https://agendamientoonline.vercel.app/",
   },
   {
     image: "/assets/images/projects/landing-corporativa.svg",

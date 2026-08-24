@@ -49,7 +49,7 @@ const services = [
   "Desarrollo Web",
   "Sistemas a Medida",
   "Aplicaciones",
-  "E-Commerce",
+  "Agendamiento Online",
   "Automatización",
   "Integraciones",
   "Otro",

@@ -17,6 +17,6 @@ export const footerServices: string[] = [
   "Desarrollo Web",
   "Sistemas a Medida",
   "Aplicaciones",
-  "E-Commerce",
+  "Agendamiento Online",
   "Automatización e Integraciones",
 ];

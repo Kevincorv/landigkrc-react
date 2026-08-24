@@ -45,8 +45,8 @@ const services: Service[] = [
         <path d="M2 3h3l2.6 12.4a1.5 1.5 0 0 0 1.5 1.1h8.9a1.5 1.5 0 0 0 1.5-1.2L21 8H6" />
       </svg>
     ),
-    title: "E-Commerce",
-    description: "Tiendas online preparadas para vender y administrar productos.",
+    title: "Agendamiento Online",
+    description: "Sistema de agendamiento online para gestionar reservas y turnos de manera rápida y sencilla.",
   },
   {
     icon: (
