@@ -25,6 +25,7 @@ const projects: Project[] = [
     title: "Plataforma AutoShopping",
     category: "Sitio web",
     description: "Sitio web moderno para la gestión y comercialización de productos automotrices.",
+    url: "https://autoshopping.vercel.app/",
   },
 ];
 
