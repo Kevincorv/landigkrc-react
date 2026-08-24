@@ -22,9 +22,9 @@ const projects: Project[] = [
   },
   {
     image: "/assets/images/projects/landing-corporativa.svg",
-    title: "Landing Corporativa",
+    title: "Plataforma AutoShopping",
     category: "Sitio web",
-    description: "Sitio web profesional para empresa.",
+    description: "Sitio web moderno para la gestión y comercialización de productos automotrices.",
   },
 ];
 
