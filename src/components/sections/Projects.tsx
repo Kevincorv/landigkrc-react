@@ -15,7 +15,7 @@ const projects: Project[] = [
     category: "Sistema web",
     description:
       "Sistema web empresarial para controlar inventario, productos, entradas, salidas y operaciones del negocio.",
-    url: "https://enlodeapubodega.vercel.app/login",
+    url: "https://sistemadestock.vercel.app/login",
   },
   {
     image: "/assets/images/projects/ecommerce.svg",
